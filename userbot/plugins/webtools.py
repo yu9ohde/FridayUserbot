@@ -1,5 +1,4 @@
 # @FridayoT
-
 import html
 import subprocess
 
@@ -8,7 +7,9 @@ from iplookup import iplookup
 from selenium import webdriver
 from youtube_search import YoutubeSearch
 
-from userbot.utils import edit_or_reply, friday_on_cmd, sudo_cmd
+from userbot.utils import edit_or_reply
+from userbot.utils import friday_on_cmd
+from userbot.utils import sudo_cmd
 
 
 @friday.on(friday_on_cmd(pattern="wshot ?(.*)"))
