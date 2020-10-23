@@ -11,7 +11,7 @@ async def _(event):
         return
     urlissed = event.pattern_match.group(1)
     await event.edit("Fecthing Song....")
-    search = SearchVideos(f"{urlissed}", offset = 1, mode = "dict", max_results = 1)
+    search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
     mi = search.result()
     mio = mi['search_result']
     mo = mio[0]['link']
@@ -23,8 +23,9 @@ async def _(event):
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     path = Config.TMP_DOWNLOAD_DIRECTORY
-    sedlyf = wget.download(kek, out = path)
-    keks = yt_obj.streams.get_audio_only().download(output_path=path, filename=f'{thum}')
+    sedlyf = wget.download(kek, out=path)
+    keks = yt_obj.streams.get_audio_only().download(
+        output_path=path, filename=f'{thum}')
     kekm = await event.edit("Song Found ! Uploading This Song..")
     renamee = keks
     pre, ext = os.path.splitext(renamee)
@@ -32,12 +33,12 @@ async def _(event):
     hmm = os.rename(renamee, pre + new_extension)
     km = pre + new_extension
     await borg.send_file(event.chat_id,
-                km,
-                force_document=False,
-                allow_cache=False,
-                caption=thum,
-                thumb = sedlyf,
-                supports_streaming=True) 
+                         km,
+                         force_document=False,
+                         allow_cache=False,
+                         caption=thum,
+                         thumb=sedlyf,
+                         supports_streaming=True)
     await kekm.edit("Done!")
     for files in (sedlyf, km):
         if files and os.path.exists(files):
