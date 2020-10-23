@@ -29,9 +29,8 @@ async def _(event):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     path = Config.TMP_DOWNLOAD_DIRECTORY
     sedlyf = wget.download(kek, out=path)
-    keks = yt_obj.streams.get_audio_only().download(
-        output_path=path, filename=f"{thum}"
-    )
+    keks = yt_obj.streams.get_audio_only().download(output_path=path,
+                                                    filename=f"{thum}")
     kekm = await event.edit("Song Found ! Uploading This Song..")
     renamee = keks
     pre, ext = os.path.splitext(renamee)
